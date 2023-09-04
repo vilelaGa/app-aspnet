@@ -1,0 +1,27 @@
+@model EmprestimosModel
+
+@{
+    ViewData['title'] = "Editar Emprestimo";
+}
+
+<h1>Excluir Emprestimo</h1>
+
+
+<form method="POST" asp-controller='Emprestimo' asp-action='Excluir'>
+
+    <input type="hidden" asp-for=Id>
+
+    <input type='text' asp-for='Recebedor' placeholder="Recebedor" disabled><br>
+    <span asp-validation-for='Recebedor' class="text-danger"></span>
+
+
+    <input type='text' asp-for='Fornecedor' placeholder="Fornecedor" disabled><br>
+    <span asp-validation-for='Fornecedor' class="text-danger"></span>
+
+
+    <input type='text' asp-for='LivroEmprestado' placeholder="Livro" disabled><br>
+    <span asp-validation-for='LivroEmprestado' class="text-danger"></span>
+
+
+    <button type='submit'>Excluir</button>
+</form>

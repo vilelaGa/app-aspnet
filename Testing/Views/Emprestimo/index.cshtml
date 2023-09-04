@@ -1,0 +1,43 @@
+@model IEnumerable<EmprestimosModel>
+
+<div class="container">
+    <div class="d-flex justify-content-beetween align-itens-center mb-5">
+        <h4>Emprestimo</h4>
+        <a asp-controller="Emprestimo" asp-action="Cadastrar">Cadastrar um novo Emprestimo</a>
+    </div>
+</div>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th scope="col">Recebedor</th>
+            <th scope="col">Fornecedor</th>
+            <th scope="col">Livro</th>
+            <th scope="col">Última atualização</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @if(Model != null)
+        {
+            @foreach (var emprestimo in Model)
+            {
+                <tr>
+                    <th>@emprestimo.recebedor</th>
+                    <th>@emprestimo.fornecedor</th>
+                    <th>@emprestimo.LivroEmprestado</th>
+                    <th>@emprestimo.DataUltimaAtt</th>         
+                    <th>
+                        <a asp-controller='Emprestimo' asp-action='Editar' asp-route-id='@emprestimo.Id'>Editar</a>
+                        <a asp-controller='Emprestimo' asp-action='Excluir' asp-route-id='@emprestimo.Id'>Deletar</a>
+                    </th>         
+                </tr>
+            }
+        }
+
+    </tbody>
+
+</table>
